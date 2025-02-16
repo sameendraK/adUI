@@ -1,0 +1,7 @@
+tr.table-row {}
+
+tr.table-row {width: max-content;}
+
+td.max-width.margin-right {
+    width: max-content;
+}

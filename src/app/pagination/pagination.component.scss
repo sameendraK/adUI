@@ -1,0 +1,36 @@
+.pagination-main-container {
+    display: flex;
+
+    .previous-pages-navigation-buttons-container {
+        display: flex;
+    }
+
+    .next-pages-navigation-buttons-container {
+        display: flex;
+    }
+}
+
+.gap-1-rem {
+    gap: 1rem;
+}
+
+.other-buttons {
+    background-color: #1990FC;
+    border-radius: 50%;
+    border-color: transparent;
+    border-radius: 50%;
+    border-color: none;
+    color:white;
+}
+
+.active-button {
+    border-radius: 50%;
+    background-color: white;
+    border: solid 2px #1990FC;
+    color: black
+}
+
+.delete-selected-button {
+    border-radius: 8px;
+    background-color: #FF5171;
+}

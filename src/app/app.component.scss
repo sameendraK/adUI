@@ -1,0 +1,114 @@
+.highlight {
+    border: solid 1px black;
+}
+
+.main-container {
+    // display: flex;
+    height: 100vh;
+
+    .table-container {
+        max-height: 100vh;
+        min-width: 100vw;
+
+        table {
+            min-height: 90vh;
+            min-width: 100%;
+            border: solid 1px black;
+
+            thead {
+                text-align: left;
+            }
+
+            tbody {
+                .row-selected {
+                    background-color: rgb(223, 223, 223);
+                    // color: gray;
+                }
+
+                tr {
+                    max-width: 2rem;
+                    max-height: 2rem;
+
+                    td {
+                        .buttons-container {
+                            display: flex;
+                            width: 100%;
+
+                            .edit-button-container {
+                                width: 15%;
+                            }
+
+                            .delete-button-container {
+                                .confirmation-cotainer {
+
+                                    .swoosh-icon-container {
+                                        width: 15%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .pagination-component-container {
+        max-height: calc(100% - 90vh);
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 0.25rem;
+    }
+
+}
+
+// .buttons-container {
+.edit-buttons-container {
+    margin-left: 1rem;
+}
+
+// }
+
+.admin-badge {
+    background-color: rgb(225, 255, 225);
+}
+
+.min-width {
+    min-width: 5rem;
+    // background-color: yellow;
+}
+
+.max-width {
+    max-width: 5rem;
+}
+
+.margin-left {
+    margin-left: 5rem;
+}
+
+.margin-right {
+    margin-right: 5rem;
+}
+
+.message-container {
+    height: 90vh;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6rem;
+    opacity: .2;
+}
+
+.bulk-delete-message-container {
+    z-index: 1;
+    height: 10vh;
+    min-width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    // opacity: .2;
+    color: gray;
+}

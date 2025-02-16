@@ -1,0 +1,109 @@
+<!-- <ng-template > -->
+<div class="main-container">
+  <div class="search-bar-component-container">
+    <app-search-bar (eTextChange)="searchHandler($event)"></app-search-bar>
+  </div>
+  <ng-container *ngIf="!noRecordsFound else noRecordsFoundContainer">
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              S.no
+            </th>
+            <th>
+              <input type="checkbox" [(ngModel)]="masterSelected" (change)="masterCheckboxChange()">
+            </th>
+            <th>
+              Name
+            </th>
+            <th>
+              Email
+            </th>
+            <th>
+              Role
+            </th>
+            <th>
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <div class="row-container" *ngIf="record.isDeleted"> -->
+          <ng-container *ngFor="let record of resultsToShow; let i = index">
+            <!-- <ng-container *ngIf="!record.isDeleted"> -->
+            <tr [ngClass]="{'row-selected':record.isChecked}" class="table-row">
+              <td>
+                {{i+1}}
+              </td>
+              <td class="min-width" class="margin-left">
+                <input type="checkbox" [(ngModel)]="record.isChecked" (change)="individualCheckboxChange()">
+              </td>
+              <td [attr.contenteditable]="record.isEditable ? 'true' : 'false'"
+                [ngClass]="{'highlight':record.isEditable}" class="margin-left">
+                {{record.name}}</td>
+              <td contenteditable="isEditable" class="max-width margin-right">
+                {{record.email}}
+              </td>
+              <td [ngClass]="{'admin-badge':record.role.toUpperCase()===admin.toUpperCase()}">
+                {{record.role}}
+              </td>
+              <td>
+                <div class="buttons-container">
+                  <div class="edit-button-container">
+                    <ng-container *ngIf="showEditAndDeleteButtons">
+                      <button type="button" (click)="editButtonClickHandler(record)">
+                        {{ record.isEditable ? 'Save' : 'Edit' }}
+                      </button>
+                    </ng-container>
+                  </div>
+                  <div class="delete-button-container">
+                    <ng-container *ngIf="showEditAndDeleteButtons">
+                      <button type="button" (click)="singleItemDeleteClickHandler(record)" [disabled]="!record.isChecked">
+                        Delete
+                      </button>
+                    </ng-container>
+                    <div *ngIf="record.isChecked && record.staggedForDelete" class="confirmation-cotainer">
+                      <div class="swoosh-icon-container">
+                        <button type="button" (click)="confirmDeleteClickHandler($event,record)">
+                          Tick
+                        </button>
+                      </div>
+                      <span class="cross-icon-container" (click)="cancelDeleteClickHandler($event,record)">
+                        <button type="button">
+                          Cross
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <!-- </div> -->
+            </tr>
+            <!-- </ng-container> -->
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </ng-container>
+  <div class="pagination-component-container">
+    <!-- <ng-container *ngComponentOutlet="component"></ng-container> -->
+    <!-- <ng-component-outlet></ng-component-outlet> -->
+    <!-- <app-pagination (eKeyDown)="clickHandler($event)" [numberOfResults]="results.length" -->
+    <app-pagination [numberOfResults]="results.length" (eButtonClicked)="paginationButtonClickedHandler($event)">
+      <!-- (eDeleteSelected)="confirmBulkDelete($event)"> -->
+    </app-pagination>
+  </div>
+</div>
+<!-- </ng-template> -->
+<ng-template #noRecordsFoundContainer>
+  <div class="message-container">
+    No records found
+  </div>
+</ng-template>
+
+<!-- <ng-template #confirmBulkDeleteContainer>
+  <div class="bulk-delete-message-container">
+    Are you sure you want to delete the seleceted records?
+  </div>
+</ng-template> -->
