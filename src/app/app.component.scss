@@ -7,8 +7,8 @@
     height: 100vh;
 
     .table-container {
-        max-height: 100vh;
-        min-width: 100vw;
+        // max-height: 100vh;
+        // min-width: 100vw;
 
         table {
             min-height: 90vh;
@@ -26,8 +26,8 @@
                 }
 
                 tr {
-                    max-width: 2rem;
-                    max-height: 2rem;
+                    // max-width: 2rem;
+                    // max-height: 2rem;
 
                     td {
                         .buttons-container {
@@ -35,7 +35,7 @@
                             width: 100%;
 
                             .edit-button-container {
-                                width: 15%;
+                                // width: 15%;
                             }
 
                             .delete-button-container {
@@ -54,8 +54,8 @@
     }
 
     .pagination-component-container {
-        max-height: calc(100% - 90vh);
-        max-width: 100%;
+        // max-height: calc(100% - 90vh);
+        // max-width: 100%;
         display: flex;
         justify-content: center;
         padding: 0.25rem;
@@ -80,7 +80,7 @@
 }
 
 .max-width {
-    max-width: 5rem;
+    // max-width: 5rem;
 }
 
 .margin-left {
