@@ -1,48 +1,43 @@
 <div class="pagination-main-container gap-1-rem">
-    <div class="first-set-of-buttons-container">
-        <div class="delete-all-container">
-            <button type="button" class="delete-selected-button other-buttons" (click)="bulkDeleteClickHandler($event)">
-                Delete Selected
-            </button>
+    <div class="delete-all-container">
+        <button type="button" class="delete-selected-button other-buttons" (click)="bulkDeleteClickHandler($event)">
+            Delete Selected
+        </button>
+    </div>
+    <div class="previous-pages-navigation-buttons-container gap-1-rem">
+        <div class="first-page-button-continer">
+            <button class="first-page-button " type="button" [disabled]="currentPageNumber === 1"
+                (click)="firsPageButtonClickHandler(1)">
+                << </button>
         </div>
-        <div class="previous-pages-navigation-buttons-container gap-1-rem">
-            <div class="first-page-button-continer">
-                <button class="first-page-button " type="button" [disabled]="currentPageNumber === 1"
-                    (click)="firsPageButtonClickHandler(1)">
-                    << </button>
-            </div>
-            <span class="previous-page-button-container">
-                <button class="previous-page-button" type="button" [disabled]="currentPageNumber === 1"
-                    (click)="previousPageClickHandler($event)">
-                    < </button>
-            </span>
-        </div>
+        <span class="previous-page-button-container">
+            <button class="previous-page-button" type="button" [disabled]="currentPageNumber === 1"
+                (click)="previousPageClickHandler($event)">
+                < </button>
+        </span>
     </div>
     <div class="buttons-container" *ngFor="let record of newArray; let i = index">
 
         <button [ngClass]="{'active-button':currentPageNumber===i+1}" class="other-buttons"
             (click)="buttonClickHandler(i+1)">{{i+1}}</button>
         <!-- <app-pagination-nav-buttons [count]="i+1"
-                (eButtonClicked)="buttonClickHandler($event)"></app-pagination-nav-buttons> -->
+            (eButtonClicked)="buttonClickHandler($event)"></app-pagination-nav-buttons> -->
     </div>
-    <div class="last-set-of-buttons-container">
-        <div class="next-pages-navigation-buttons-container gap-1-rem">
-            <div class="next-page-button-continer">
-                <button class="next-page-button other-buttons" type="button"
-                    [disabled]="currentPageNumber === newArray.length" (click)="nextPageClickHandler($event)">
-                    > </button>
-            </div>
-            <div class="last-page-button-container">
-                <button class="last-page-button other-buttons" type="button"
-                    [disabled]="currentPageNumber === newArray.length"
-                    (click)="lastPageButtonClickHandler(newArray.length)">
-                    >> </button>
-            </div>
+    <div class="next-pages-navigation-buttons-container gap-1-rem">
+        <div class="next-page-button-continer">
+            <button class="next-page-button other-buttons" type="button"
+                [disabled]="currentPageNumber === newArray.length" (click)="nextPageClickHandler($event)">
+                > </button>
         </div>
-
-        <div class="deleted-records-button-container">
-            <button (click)="showDeletedRecordsClickHandler($event)" [disabled]="deletedCount===0">Show
-                Deleted</button>
+        <div class="last-page-button-container">
+            <button class="last-page-button other-buttons" type="button"
+                [disabled]="currentPageNumber === newArray.length"
+                (click)="lastPageButtonClickHandler(newArray.length)">
+                >> </button>
         </div>
+    </div>
+    <div class="deleted-records-button-container">
+        <button (click)="showDeletedRecordsClickHandler($event)" [disabled]="deletedCount===0">Show
+            Deleted</button>
     </div>
 </div>
