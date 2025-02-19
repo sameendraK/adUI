@@ -5,13 +5,24 @@
         display: flex;
     }
 
-    .next-pages-navigation-buttons-container {
-        display: flex;
+    .first-set-of-buttons-container {
+        .delete-all-container {
+            // margin-bottom: 1rem;
+        }
     }
+
+    .last-set-of-buttons-container {
+        .next-pages-navigation-buttons-container {
+            display: flex;
+            // margin-bottom: 1rem;
+        }
+
+    }
+
 }
 
 .gap-1-rem {
-    gap: 1rem;
+    gap: .31rem;
 }
 
 .other-buttons {
@@ -20,7 +31,7 @@
     border-color: transparent;
     border-radius: 50%;
     border-color: none;
-    color:white;
+    color: white;
 }
 
 .active-button {
